@@ -15,6 +15,18 @@ angular.module('starter.services', [])
         });
     }
 
+    svc.addUsuario = function(usuario) {
+        $http({
+            method: 'POST',
+            url: 'http://localhost:3000/usuarios',
+            data: usuario
+        }).then(function successCallback(response) {
+            succescallback(response.data);
+        }, function errorCallback(response) {
+            errorCalback(response);
+        });
+    }
+
     return svc;
 
 }]);

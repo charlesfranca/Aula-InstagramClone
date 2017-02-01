@@ -2,6 +2,18 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
+.controller('UsuariosCtrl', function($scope, Usuarios) {
+    $scope.saveUser = function(firstname, lastname, username, password) {
+        var usuario = {
+            "nome": firstname,
+            "sobrenome": lastname,
+            "username": username,
+            "senha": password
+        }
+        Usuarios.addUsuario(usuario);
+    }
+})
+
 .controller('ChatsCtrl', function($scope, Usuarios) {
     Usuarios.getUsuarios(function(dados) {
         $scope.usuarios = dados;
