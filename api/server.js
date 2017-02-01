@@ -1,6 +1,11 @@
 // Importação da biblioteca do express para dentro do nosso código
 var express = require('express');
+
+// Biblioteca que possibilita/libera o acesso
+// a api por servidores externos
+var cors = require('cors')
 var app = express();
+app.use(cors())
 
 // Biblioteca que possibilita a extração dos parâmetros enviados pelo app/website
 // via body no formato json
@@ -9,12 +14,7 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded
 
 // Vetor de usuarios
-var usuarios = [{
-    nome: "Charles",
-    sobrenome: "dos Santos França",
-    username: "charlesfranca89",
-    senha: "123123"
-}];
+var usuarios = [];
 
 // Cria um endpoint(URL) com o metodo get que geralmente é usado para 
 // listar ou retornar informação

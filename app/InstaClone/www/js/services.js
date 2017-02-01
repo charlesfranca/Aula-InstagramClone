@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 
-.factory('Usuarios', function($http) {
+.factory('Usuarios', ['$http', function($http) {
 
     var svc = {};
     svc.getUsuarios = function(succescallback, errorCalback) {
@@ -9,10 +9,12 @@ angular.module('starter.services', [])
             method: 'GET',
             url: 'http://localhost:3000/usuarios'
         }).then(function successCallback(response) {
-            callback(response.data);
+            succescallback(response.data);
         }, function errorCallback(response) {
             errorCalback(response);
         });
     }
 
-});
+    return svc;
+
+}]);
