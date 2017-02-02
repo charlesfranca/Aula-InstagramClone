@@ -26,5 +26,11 @@
         <button class="button button-block button-positive" ng-click="saveUser(firstname, lastname, username, password)">
               CADASTRAR
             </button>
+        <div ng-if="erros.length > 0">
+            <p class="error" ng-repeat="erro in erros">{{ erro }}</p>
+        </div>
+
+        <button ng-click="getImage()"></button>
+        <img id="myImage" />
     </ion-content>
 </ion-view>

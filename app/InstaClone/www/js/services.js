@@ -15,7 +15,7 @@ angular.module('starter.services', [])
         });
     }
 
-    svc.addUsuario = function(usuario) {
+    svc.addUsuario = function(usuario, succescallback, errorCalback) {
         $http({
             method: 'POST',
             url: 'http://localhost:3000/usuarios',

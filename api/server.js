@@ -31,20 +31,47 @@ app.get('/usuarios', function(req, res) {
 app.post('/usuarios', function(req, res) {
     // Criação da váriavel usuario para cadastrar no nosso vetor
     // req.body.nome é uma variavel enviada no corpo da requisição pelo usuário
-    var usuario = {
-            nome: req.body.nome,
-            sobrenome: req.body.sobrenome,
-            username: req.body.username,
-            senha: req.body.senha
-        }
-        // Grava o usuário no vetor
-    usuarios.push(usuario);
+    var erros = [];
+    if (!req.body.nome) {
+        erros.push("Nome não informado");
+    }
+    if (!req.body.sobrenome) {
+        erros.push("sobrenome não informado");
+    }
+    if (!req.body.username) {
+        erros.push("username não informado");
+    }
+    if (!req.body.senha) {
+        erros.push("senha não informada");
+    }
 
-    // Devolve uma resposta para o app ou site que esta fazendo a requisição
-    res.send({
-        status: true,
-        usuarios: usuarios
-    });
+    var regex = new RegExp(/\D/, 'i');
+    if (regex.test(req.body.senha)) {
+        erros.push("senha contém caracteres alphanuméricos");
+    }
+
+    if (erros.length > 0) {
+        res.send({
+            status: false,
+            erros: erros
+        });
+    } else {
+        var usuario = {
+                nome: req.body.nome,
+                sobrenome: req.body.sobrenome,
+                username: req.body.username,
+                senha: req.body.senha
+            }
+            // Grava o usuário no vetor
+        usuarios.push(usuario);
+
+        // Devolve uma resposta para o app ou site que esta fazendo a requisição
+        res.send({
+            status: true,
+            usuarios: usuarios
+        });
+    }
+
     //console.log(req.body);
 });
 
