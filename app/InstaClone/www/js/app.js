@@ -72,6 +72,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
     })
 
+    .state('tab.produtos', {
+        url: '/produtos',
+        views: {
+            'tab-produtos': {
+                templateUrl: 'templates/produtos.html',
+                controller: 'ProdutosCtrl'
+            }
+        }
+    })
+
+    .state('tab.cadastro-produto', {
+        url: '/cadprod',
+        views: {
+            'tab-produtos': {
+                templateUrl: 'templates/cadastro-produto.html',
+                controller: 'CadProdCtrl'
+            }
+        }
+    })
+
     .state('tab.chat-detail', {
         url: '/chats/:chatId',
         views: {
@@ -93,6 +113,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/mensagemchat');
+    $urlRouterProvider.otherwise('/tab/cadprod');
 
 });

@@ -88,4 +88,12 @@ angular.module('starter.controllers', [])
     $scope.settings = {
         enableFriends: true
     };
+})
+
+.controller('CadProdCtrl', function($scope) {
+
+})
+
+.controller('ProdutosCtrl', function($scope) {
+
 });

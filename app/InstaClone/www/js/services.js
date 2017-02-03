@@ -29,4 +29,35 @@ angular.module('starter.services', [])
 
     return svc;
 
+}])
+
+.factory('Produtos', ['$http', function($http) {
+
+    var svc = {};
+    var produtos = [{
+            titulo: "Camera 1",
+            preco: "500,00",
+            descricao: "Melhor camera do mundo."
+        },
+        {
+            titulo: "Camera 1",
+            preco: "500,00",
+            descricao: "Melhor camera do mundo."
+        },
+        {
+            titulo: "Camera 1",
+            preco: "500,00",
+            descricao: "Melhor camera do mundo."
+        },
+        {
+            titulo: "Camera 1",
+            preco: "500,00",
+            descricao: "Melhor camera do mundo."
+        }
+    ];
+    svc.getProdutos = function() {
+        return produtos;
+    }
+    return svc;
+
 }]);
