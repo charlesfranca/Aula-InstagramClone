@@ -60,6 +60,25 @@ angular.module('starter.controllers', [])
     });
 })
 
+.controller('mensagemChatCtrl', function($scope, $firebaseArray) {
+    // Conecta a variavel tabelaRef a uma tabela no firebase chamada "messages"
+    var tabelaRef = firebase.database().ref().child("chat");
+    // sincroniza a variavel de escopo com a taela
+    $scope.messages = $firebaseArray(tabelaRef);
+    // add new items to the array
+    // the message is automatically added to our Firebase database!
+    $scope.enviarMensagem = function(nome, mensagem) {
+        var mensagem = {
+            nome: nome,
+            mensagem: mensagem,
+            _date: "17/01/2010"
+        }
+        console.log(mensagem);
+        $scope.messages.$add(mensagem);
+    };
+    // click on `index.html` above to see $remove() and $save() in action
+})
+
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
     $scope.chat = Chats.get($stateParams.chatId);
 })

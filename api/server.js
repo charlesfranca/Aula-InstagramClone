@@ -4,6 +4,12 @@ var express = require('express');
 // Biblioteca que possibilita/libera o acesso
 // a api por servidores externos
 var cors = require('cors')
+var firebase = require("firebase");
+
+firebase.initializeApp({
+    databaseURL: "https://instaclone-e65c8.firebaseio.com",
+});
+
 var app = express();
 app.use(cors())
 
@@ -15,6 +21,12 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded
 
 // Vetor de usuarios
 var usuarios = [];
+// As an admin, the app has access to read and write all data, regardless of Security Rules
+var db = firebase.database();
+var ref = db.ref("instaclone-e65c8");
+
+var usersRef = ref.child("users");
+
 
 // Cria um endpoint(URL) com o metodo get que geralmente é usado para 
 // listar ou retornar informação
@@ -63,7 +75,7 @@ app.post('/usuarios', function(req, res) {
                 senha: req.body.senha
             }
             // Grava o usuário no vetor
-        usuarios.push(usuario);
+        usersRef.push(usuario);
 
         // Devolve uma resposta para o app ou site que esta fazendo a requisição
         res.send({

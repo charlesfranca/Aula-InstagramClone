@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova', "firebase"])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -42,6 +42,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         url: '/signup',
         templateUrl: 'templates/signup.html',
         controller: "UsuariosCtrl"
+    })
+
+    .state('chat', {
+        url: '/mensagemchat',
+        templateUrl: 'templates/chat.html',
+        controller: "mensagemChatCtrl"
     })
 
     // Each tab has its own nav history stack:
@@ -87,6 +93,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/signup');
+    $urlRouterProvider.otherwise('/mensagemchat');
 
 });

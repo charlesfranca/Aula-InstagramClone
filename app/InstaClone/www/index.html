@@ -27,6 +27,23 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <!-- Firebase -->
+    <script src="lib/firebase/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAF0KG8ZoCRebLgaGnj2-rB2-C5VkGjMYk",
+            authDomain: "instaclone-e65c8.firebaseapp.com",
+            databaseURL: "https://instaclone-e65c8.firebaseio.com",
+            storageBucket: "instaclone-e65c8.appspot.com",
+            messagingSenderId: "600606321683"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!-- AngularFire -->
+    <script src="lib/angularfire/dist/angularfire.min.js"></script>
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
