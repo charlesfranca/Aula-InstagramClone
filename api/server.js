@@ -74,7 +74,7 @@ app.post('/usuarios', function(req, res) {
                 username: req.body.username,
                 senha: req.body.senha
             }
-            // Grava o usuário no vetor
+            // Grava o usuário no servidor
         usersRef.push(usuario);
 
         // Devolve uma resposta para o app ou site que esta fazendo a requisição
