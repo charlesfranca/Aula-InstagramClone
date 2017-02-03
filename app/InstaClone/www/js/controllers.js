@@ -90,10 +90,21 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('CadProdCtrl', function($scope) {
+.controller('CadProdCtrl', function($scope, $ionicNavBarDelegate, $state) {
+    $ionicNavBarDelegate.showBackButton(false);
 
+    $scope.cancelar = function() {
+        $state.go("tab.cadastro-produto");
+    }
 })
 
-.controller('ProdutosCtrl', function($scope) {
+// Lembresse sempre de declarar todas as suas 
+// dependências de service ou outros frameworks na linha abaixo
+.controller('ProdutosCtrl', function($scope, Produtos, $state) {
+    // Consome o service para recuperar a lista de produtos
+    $scope.produtos = Produtos.getProdutos();
 
+    $scope.goToEdit = function() {
+        $state.go("tab.cadastro-produto");
+    }
 });

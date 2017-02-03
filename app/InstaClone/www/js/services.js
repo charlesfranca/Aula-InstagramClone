@@ -37,22 +37,26 @@ angular.module('starter.services', [])
     var produtos = [{
             titulo: "Camera 1",
             preco: "500,00",
-            descricao: "Melhor camera do mundo."
+            descricao: "Melhor camera do mundo.",
+            imagem: ""
         },
         {
             titulo: "Camera 1",
             preco: "500,00",
-            descricao: "Melhor camera do mundo."
+            descricao: "Melhor camera do mundo.",
+            imagem: ""
         },
         {
             titulo: "Camera 1",
             preco: "500,00",
-            descricao: "Melhor camera do mundo."
+            descricao: "Melhor camera do mundo.",
+            imagem: ""
         },
         {
             titulo: "Camera 1",
             preco: "500,00",
-            descricao: "Melhor camera do mundo."
+            descricao: "Melhor camera do mundo.",
+            imagem: ""
         }
     ];
     svc.getProdutos = function() {
