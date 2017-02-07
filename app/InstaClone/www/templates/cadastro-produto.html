@@ -8,13 +8,13 @@
     <ion-content class="">
         <div class="list">
             <label class="item item-input">
-              <input type="text" placeholder="titulo">
+              <input type="text" placeholder="titulo" ng-model="titulo">
             </label>
             <label class="item item-input">
-              <input type="text" placeholder="preco">
+              <input type="text" placeholder="preco" ng-model="preco">
             </label>
             <label class="item item-input">
-              <textarea placeholder="descricao"></textarea>
+              <textarea placeholder="descricao" ng-model="descicao"></textarea>
             </label>
         </div>
         <button class="button button-block button-positive" ng-click="cadastrar(titulo, preco, descricao)">

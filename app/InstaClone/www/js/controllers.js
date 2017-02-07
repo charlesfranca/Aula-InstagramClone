@@ -90,11 +90,25 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('CadProdCtrl', function($scope, $ionicNavBarDelegate, $state) {
+.controller('CadProdCtrl', function($scope, $ionicNavBarDelegate, $state, $firebaseArray) {
     $ionicNavBarDelegate.showBackButton(false);
+    // Conecta a variavel tabelaRef a uma tabela no firebase chamada "messages"
+    var tabelaRef = firebase.database().ref().child("chat");
+    // sincroniza a variavel de escopo com a taela
+    $scope.produtos = $firebaseArray(tabelaRef);
+    console.log($scope.produtos);
 
+    $scope.cadastrar = function(titulo, preco, descricao) {
+        var produto = {
+            titulo: titulo,
+            preco: preco,
+            descricao: descricao
+        }
+        $scope.produtos.$add(produto);
+        $state.go("tab.produtos");
+    }
     $scope.cancelar = function() {
-        $state.go("tab.cadastro-produto");
+        $state.go("tab.produtos");
     }
 })
 
